@@ -7,7 +7,7 @@ const apiKey = "AIzaSyDdE-Zf-lde27PunpxnY-cmKYXJ5G2FL1I";
 class GoogleMapsServices {
   Future<String> getRouteCoordinates(LatLng l1, LatLng l2) async {
     String url =
-        "https://maps.googleapis.com/maps/api/directions/json?origin=${l1.latitude},${l1.longitude}&destination=${l2.latitude},${l2.longitude}&key=$apiKey";
+        "https://maps.googleapis.com/maps/api/directions/json?origin=${l1.latitude},${l1.longitude}&traffic_model=best_guess&destination=${l2.latitude},${l2.longitude}&departure_time=now&key=$apiKey";
     http.Response response = await http.get(url);
     Map values = jsonDecode(response.body);
 
@@ -24,7 +24,7 @@ class GoogleMapsServices {
   Future<Map> getDistanceCoordinates(
       LatLng startLocation, LatLng targetLocation) async {
     String url =
-        "https://maps.googleapis.com/maps/api/directions/json?origin=${startLocation.latitude},${startLocation.longitude}&destination=${targetLocation.latitude},${targetLocation.longitude}&key=$apiKey";
+        "https://maps.googleapis.com/maps/api/directions/json?origin=${startLocation.latitude},${startLocation.longitude}&traffic_model=best_guess&destination=${targetLocation.latitude},${targetLocation.longitude}&departure_time=now&key=$apiKey";
     http.Response response = await http.get(url);
     Map values = jsonDecode(response.body);
 

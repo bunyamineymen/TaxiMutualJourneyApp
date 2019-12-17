@@ -385,7 +385,7 @@ class _MapState extends State<Map> {
                                     Icons.face,
                                     size: 50,
                                   ),
-                                  tittle: 'Lose Of Customer',
+                                  tittle: 'Lose Of Customer ' + val['case'],
                                   desc:
                                       'wasteOfTimeTaxi: $wasteOfTimeTaxiText dk \n wasteOfDistanceTaxi: $wasteOfDistanceTaxiText  km \n wasteOfTimeCustomer : $wasteOfTimeCustomerText dk \n wasteOfDistanceCustomer: $wasteOfDistanceCustomerText km',
                                   btnOk: FlatButton(

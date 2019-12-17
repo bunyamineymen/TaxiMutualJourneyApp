@@ -22,6 +22,8 @@ class AppState with ChangeNotifier {
   Set<Polyline> get polyLines => _polyLines;
   int followingIndexOfColor = 0;
 
+  String casetext;
+
   AppState() {
     _getUserLocation();
     _loadingInitialPosition();
@@ -74,6 +76,8 @@ class AppState with ChangeNotifier {
     if (case1 < case2) {
       // firstly customer
 
+      casetext = "firstlycustomer";
+
       calculateBJKA(taxiLocation, taxiTarget, customerLocation, customerTarget);
 
       wasteOfTimeTaxi =
@@ -82,6 +86,8 @@ class AppState with ChangeNotifier {
           (distanceA + distanceB + distanceDForTaxi) - (normalDistanceForTaxi);
     } else {
       // firstly taxi
+
+      casetext = "firstly taxi";
 
       calculateBJKB(taxiLocation, taxiTarget, customerLocation, customerTarget);
 
@@ -96,6 +102,7 @@ class AppState with ChangeNotifier {
     }
 
     return {
+      'case': casetext,
       'wasteOfTimeTaxi': wasteOfTimeTaxi,
       'wasteOfDistanceTaxi': wasteOfDistanceTaxi,
       'wasteOfTimeCustomer': wasteOfTimeCustomer,
